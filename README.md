@@ -1,6 +1,19 @@
+# Dependencies
+
+- PySimpleGUI
+- Java JDK 20 for jarsigner.
+- 7z for modifying AAB file: deleting exist key files in AAB file.
+
+
 # Installation
 
-Run these commands to initialize virtual environment and install dependencies
+- Register Java JDK's binaries and 7z's binary in system's PATH. Required commands: jarsigner and 7z.
+
+- If you encounter error relating to missing PySimpleGUI: `ImportError: No module named PySimpleGUI`, install PySimpleGUI through CLI:
+
+```pip install PySimpleGUI```
+
+- Run these commands to initialize virtual environment and install dependencies
 
 ```
 python -m venv venv
