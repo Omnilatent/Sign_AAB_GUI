@@ -14,6 +14,7 @@ layout = [
     [sg.Text("Key Alias:"), sg.Input('', key='-KEYALIAS-')],
     [sg.Text("Alias Password:"), sg.Input('', key='-ALIASPASSWORD-', password_char='*')],
     [sg.Button("Submit")],
+    [sg.Button("DeleteKey")],
     [sg.Text("", key="-RESULT-")]
 ]
 
@@ -52,5 +53,13 @@ while True:
             key_alias=values["-KEYALIAS-"], 
             mystorepassword="***", 
             aliaspass="***"))
+        os.system(command)
+        window["-RESULT-"].update("FINISHED")
+    elif event == "DeleteKey":
+        if platform.system() == "Windows":
+            command = "7z d \"{aab_path}\" META-INF".format(aab_path=values["-AAB-"])
+        else:
+            command = "zip -d \"{aab_path}\" META-INF/\\*".format(aab_path=values["-AAB-"])
+        print(command)
         os.system(command)
         window["-RESULT-"].update("FINISHED")
